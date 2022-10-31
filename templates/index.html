@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>Drowsiness</title>
+</head>
+<body>
+  <div id="app">
+    <v-app id="inspire">
+        <v-navigation-drawer
+          v-model="drawer"
+          app
+        >
+          <!--  -->
+        </v-navigation-drawer>
+    
+        <v-app-bar   color="blue" accent="4" dense dark app>
+          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+    
+          <v-toolbar-title>Drowsiness</v-toolbar-title>
+
+          <v-spacer></v-spacer>
+
+          <v-btn icon>
+            <v-icon>mdi-export</v-icon>
+          </v-btn>
+
+        </v-app-bar>
+    
+        <v-main>
+
+          <!-- Provides the application the proper gutter 
+          https://picsum.photos/id/11/500/300
+          -->
+            <v-container>
+              <v-row
+                no-gutters
+                style="flex-wrap: nowrap;"
+                class="justify-space-between"
+              >
+                <v-col
+                  cols="7"
+                  class="flex-grow-0 flex-shrink-0"
+                >
+                  <v-card
+                    class="mb-6 pa-2"
+                    outlined
+                    elevation="6"
+                  >
+                    <v-img
+                      max-height="600"
+                      max-width="800"
+                      src="./video"
+                    ></v-img>
+                  </v-card>
+                </v-col>
+                <v-col
+                  cols="4"
+                  class="flex-grow-1 flex-shrink-0"
+                >
+                  <v-card
+                    class="mb-6 pa-2"
+                    elevation="1"
+                  >
+                  <v-row>
+                    <v-col cols="12">
+                      <v-subheader class="pl-0">
+                        Precisión
+                      </v-subheader>
+                      <v-slider
+                        v-model="slider"
+                        thumb-label
+                      ></v-slider>
+                    </v-col>
+                  </v-row>
+                  </v-card>
+                </v-col>
+              </v-row>
+
+              <v-row>
+                <v-col 
+                  cols="7"
+                  class="flex-grow-1 flex-shrink-0"
+                >
+                    <v-row>
+                      <v-col
+                        cols="4"
+                        class="flex-grow-1 flex-shrink-0"
+                      >
+                        <v-text-field
+                          v-model="valores.parpadeos"
+                          label="Cantidad Parpadeos"
+                          readonly
+                        ></v-text-field>
+                      </v-col>
+                      <v-col
+                        cols="4"
+                        class="flex-grow-1 flex-shrink-0"
+                      >
+                        <v-text-field
+                          v-model="valores.somnolencia"
+                          label="Cantidad Somnolencia"
+                          readonly
+                        ></v-text-field>
+                      </v-col>
+                      <v-col
+                        cols="4"
+                        class="flex-grow-1 flex-shrink-0"
+                      >
+                        <v-text-field
+                          v-model="valores.tiempo"
+                          label="Tiempo"
+                          readonly
+                        ></v-text-field>
+                      </v-col>
+                    </v-row>
+                </v-col>
+              </v-row>
+            </v-container>
+        </v-main>
+      </v-app>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data: () => ({ 
+        drawer: null,
+        valores:{
+          parpadeos: 10,
+          somnolencia: 2,
+          tiempo: 20
+        } 
+      })
+    })
+  </script>
+</body>
+</html>
